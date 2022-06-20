@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
+  const [disable, setDisable] = useState(true);
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -33,6 +34,7 @@ function Login() {
         <button
           type="submit"
           data-testid="login-submit-btn"
+          disabled={ disable }
         >
           Login
         </button>
