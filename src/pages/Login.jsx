@@ -20,7 +20,17 @@ function Login() {
     }));
   };
 
-  const loginValidation = () => {
+  const handleButtonSubmit = (event) => {
+    event.preventDefault();
+
+    saveEmailToLocalStorage(loginState.EmailInput);
+    saveMealsTokenToLocalStorage(1);
+    saveCocktailsTokenToLocalStorage(1);
+
+    history.push('/foods');
+  };
+
+  useEffect(() => {
     let validate = false;
 
     const EMAIL_REGEX = /^[\w.-]+@[\w.-]+\.[\w]+(\.[\w]+)?$/i;
@@ -35,20 +45,6 @@ function Login() {
     } else {
       setDisable(true);
     }
-  };
-
-  const handleButtonSubmit = (event) => {
-    event.preventDefault();
-
-    saveEmailToLocalStorage(loginState.EmailInput);
-    saveMealsTokenToLocalStorage(1);
-    saveCocktailsTokenToLocalStorage(1);
-
-    history.push('/foods');
-  };
-
-  useEffect(() => {
-    loginValidation();
   }, [loginState]);
 
   return (
