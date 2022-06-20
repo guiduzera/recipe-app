@@ -4,9 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Login() {
   const [disable, setDisable] = useState(true);
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    EmailInput: '',
+    PasswordInput: '',
   });
+
+  const handleInputChange = ({ target }) => {
+    const { name, value } = target;
+    setUser((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
 
   return (
     <section className="meals">
@@ -17,7 +25,8 @@ function Login() {
             type="email"
             name="EmailInput"
             id="EmailInput"
-            value={ user.email }
+            value={ user.EmailInput }
+            onChange={ handleInputChange }
             data-testid="email-input"
           />
         </label>
@@ -27,7 +36,8 @@ function Login() {
             type="password"
             name="PasswordInput"
             id="PasswordInput"
-            value={ user.password }
+            value={ user.PasswordInput }
+            onChange={ handleInputChange }
             data-testid="password-input"
           />
         </label>
