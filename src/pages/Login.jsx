@@ -16,6 +16,27 @@ function Login() {
     }));
   };
 
+  const loginValidation = () => {
+    let validate = false;
+
+    const EMAIL_REGEX = /^[\w.-]+@[\w.-]+\.[\w]+(\.[\w]+)?$/i;
+    const MINIMUM_PASSWORD_LENGTH = 6;
+    const validateEmail = EMAIL_REGEX.test(user.EmailInput);
+    const validatePassword = user.PasswordInput.length >= MINIMUM_PASSWORD_LENGTH;
+
+    if (validateEmail && validatePassword) validate = true;
+
+    if (validate === true) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  };
+
+  useEffect(() => {
+    loginValidation();
+  }, [user]);
+
   return (
     <section className="meals">
       <form>
