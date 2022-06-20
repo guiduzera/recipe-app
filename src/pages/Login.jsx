@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { saveEmailToLocalStorage, saveMealsTokenToLocalStorage,
+  saveCocktailsTokenToLocalStorage } from '../helpers/localStorage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
+  const history = useHistory();
   const [disable, setDisable] = useState(true);
   const [loginState, setLoginState] = useState({
     EmailInput: '',
     PasswordInput: '',
   });
+  
 
   const handleInputChange = ({ target }) => {
     const { name, value } = target;
@@ -31,6 +36,16 @@ function Login() {
     } else {
       setDisable(true);
     }
+  };
+
+  const handleButtonSubmit = (event) => {
+    event.preventDefault()
+
+    saveEmailToLocalStorage(loginState.EmailInput)
+    saveMealsTokenToLocalStorage(1)
+    saveCocktailsTokenToLocalStorage(1)
+
+    history.push('/foods')
   };
 
   useEffect(() => {
@@ -66,6 +81,7 @@ function Login() {
           type="submit"
           data-testid="login-submit-btn"
           disabled={ disable }
+          onSubmit={ handleButtonSubmit }
         >
           Login
         </button>
