@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+
   return (
     <section className="meals">
       <form>
@@ -11,6 +16,7 @@ function Login() {
             type="email"
             name="EmailInput"
             id="EmailInput"
+            value={ user.email }
             data-testid="email-input"
           />
         </label>
@@ -20,6 +26,7 @@ function Login() {
             type="password"
             name="PasswordInput"
             id="PasswordInput"
+            value={ user.password }
             data-testid="password-input"
           />
         </label>
