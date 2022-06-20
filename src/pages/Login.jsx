@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { saveEmailToLocalStorage, saveMealsTokenToLocalStorage,
   saveCocktailsTokenToLocalStorage } from '../helpers/localStorage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useHistory } from 'react-router-dom';
 
 function Login() {
   const history = useHistory();
@@ -11,7 +11,6 @@ function Login() {
     EmailInput: '',
     PasswordInput: '',
   });
-  
 
   const handleInputChange = ({ target }) => {
     const { name, value } = target;
@@ -39,13 +38,13 @@ function Login() {
   };
 
   const handleButtonSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    saveEmailToLocalStorage(loginState.EmailInput)
-    saveMealsTokenToLocalStorage(1)
-    saveCocktailsTokenToLocalStorage(1)
+    saveEmailToLocalStorage(loginState.EmailInput);
+    saveMealsTokenToLocalStorage(1);
+    saveCocktailsTokenToLocalStorage(1);
 
-    history.push('/foods')
+    history.push('/foods');
   };
 
   useEffect(() => {
@@ -54,7 +53,7 @@ function Login() {
 
   return (
     <section className="meals">
-      <form>
+      <form onSubmit={ handleButtonSubmit }>
         <label htmlFor="EmailInput">
           Email
           <input
@@ -81,7 +80,6 @@ function Login() {
           type="submit"
           data-testid="login-submit-btn"
           disabled={ disable }
-          onSubmit={ handleButtonSubmit }
         >
           Login
         </button>
