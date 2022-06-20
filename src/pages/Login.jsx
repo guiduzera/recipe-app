@@ -3,14 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
   const [disable, setDisable] = useState(true);
-  const [user, setUser] = useState({
+  const [loginState, setLoginState] = useState({
     EmailInput: '',
     PasswordInput: '',
   });
 
   const handleInputChange = ({ target }) => {
     const { name, value } = target;
-    setUser((previous) => ({
+    setLoginState((previous) => ({
       ...previous,
       [name]: value,
     }));
@@ -20,9 +20,9 @@ function Login() {
     let validate = false;
 
     const EMAIL_REGEX = /^[\w.-]+@[\w.-]+\.[\w]+(\.[\w]+)?$/i;
-    const MINIMUM_PASSWORD_LENGTH = 6;
-    const validateEmail = EMAIL_REGEX.test(user.EmailInput);
-    const validatePassword = user.PasswordInput.length >= MINIMUM_PASSWORD_LENGTH;
+    const MINIMUM_PASSWORD_LENGTH = 7;
+    const validateEmail = EMAIL_REGEX.test(loginState.EmailInput);
+    const validatePassword = loginState.PasswordInput.length >= MINIMUM_PASSWORD_LENGTH;
 
     if (validateEmail && validatePassword) validate = true;
 
@@ -35,7 +35,7 @@ function Login() {
 
   useEffect(() => {
     loginValidation();
-  }, [user]);
+  }, [loginState]);
 
   return (
     <section className="meals">
@@ -46,7 +46,7 @@ function Login() {
             type="email"
             name="EmailInput"
             id="EmailInput"
-            value={ user.EmailInput }
+            value={ loginState.EmailInput }
             onChange={ handleInputChange }
             data-testid="email-input"
           />
@@ -57,7 +57,7 @@ function Login() {
             type="password"
             name="PasswordInput"
             id="PasswordInput"
-            value={ user.PasswordInput }
+            value={ loginState.PasswordInput }
             onChange={ handleInputChange }
             data-testid="password-input"
           />
