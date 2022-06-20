@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import rockGlass from './images/rockGlass.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MenuInferior from './components/menu inferior/MenuInferior';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       >
         Glass
       </object>
+      <MenuInferior />
     </div>
   );
 }
