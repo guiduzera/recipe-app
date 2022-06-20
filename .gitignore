@@ -31,3 +31,4 @@ cypress/reports
 
 #Helpers
 api.http
+localStorageStructure.txt
