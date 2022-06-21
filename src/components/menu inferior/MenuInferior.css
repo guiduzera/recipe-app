@@ -1,0 +1,14 @@
+.menuInferior {
+  background-color: lightgray;
+  bottom: 0%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+}
+
+.menuInferior button {
+  background-color: lightgray;
+  border-style: none;
+}
