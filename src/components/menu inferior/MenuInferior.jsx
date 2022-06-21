@@ -10,42 +10,27 @@ function MenuInferior() {
 
   return (
     <footer data-testid="footer" className="menuInferior">
-      <object
-        role="button"
-        tabIndex={ 0 }
-        onClick={ () => redirect('/drinks') }
-        onKeyDown={ () => { redirect('/drinks'); } }
+      <button
         data-testid="drinks-bottom-btn"
-        className="drinKIcon"
-        type="image/svg+xml"
-        data={ drinkIcon }
+        type="button"
+        onClick={ () => redirect('/drinks') }
       >
-        Drink
-      </object>
-      <object
-        role="button"
-        tabIndex={ 0 }
-        onClick={ () => redirect('/explore') }
-        onKeyUp={ () => { redirect('/explore'); } }
+        <img src={ drinkIcon } alt="taça de bebida" />
+      </button>
+      <button
         data-testid="explore-bottom-btn"
-        className="exploreIcon"
-        type="image/svg+xml"
-        data={ exploreIcon }
+        type="button"
+        onClick={ () => redirect('/explore') }
       >
-        Explore
-      </object>
-      <object
-        role="button"
-        tabIndex={ 0 }
-        onClick={ () => redirect('/foods') }
-        onKeyPress={ () => { redirect('/foods'); } }
+        <img src={ exploreIcon } alt="bussola" />
+      </button>
+      <button
         data-testid="food-bottom-btn"
-        className="mealIcon"
-        type="image/svg+xml"
-        data={ mealIcon }
+        type="button"
+        onClick={ () => redirect('/foods') }
       >
-        Meal
-      </object>
+        <img src={ mealIcon } alt="garfo e faca" />
+      </button>
     </footer>
   );
 }
