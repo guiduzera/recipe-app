@@ -7,3 +7,8 @@
   position: fixed;
   width: 100%;
 }
+
+.menuInferior button {
+  background-color: lightgray;
+  border-style: none;
+}
