@@ -1,0 +1,22 @@
+
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Header from '../components/Header/Header';
+
+describe('Verifica o funcionaento do Header', () => {
+  test('Verifica a existência e funcionaento do ícone Perfil', () => {
+    render(<Header />);
+    const profileIcon = screen.getByRole('img', { name: 'Perfil' });
+    // const srcProfile = '../../images/profileIcon.svg';
+    // expect(profileIcon.src).toContain(srcProfile);
+    expect(profileIcon).toBeDefined();
+  });
+
+  test('Verifica a existência e funcionaento do ícone Buscar', () => {
+    render(<Header />);
+    const searchIcon = screen.getByRole('img');
+    const srcSearch = '../../images/searchIcon.svg';
+    expect(searchIcon).toHaveAttribute('src', srcSearch);
+    expect(searchIcon).toBeDefined();
+  });
+});
