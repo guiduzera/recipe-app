@@ -16,7 +16,9 @@
 .Card img {
   box-shadow: 1px 1px 1px darkgray;
   height: 150px;
-  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  width: 140px;
 }
 
 .boxName {
