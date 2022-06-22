@@ -11,9 +11,10 @@ function DataProvider({ children }) {
   const [catDrinks, setCatDrinks] = useState([]);
   useEffect(() => {
     const ENDPOINT_FOOD = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+    const ENDPOINT_DRINK = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
     const getApiFoodDrink = async () => {
       const resultFood = await GetFoods(ENDPOINT_FOOD);
-      const resultDrink = await GetDrinks();
+      const resultDrink = await GetDrinks(ENDPOINT_DRINK);
       const resultListCatDrinks = await GetCategorieDrinks();
       const resultListCatFoods = await GetCategorieFoods();
       setFoods(resultFood);

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
 import Header from '../../components/Header/Header';
@@ -6,39 +6,52 @@ import dataContext from '../../context/dataContext';
 import Card from '../../components/Card_Drink_or_Food/Card';
 import './Foods.css';
 import ButtonCategories from '../../components/button_categories/ButtonCategories';
-// import { GetFoods } from '../../helpers/apiDrink&Food';
-// import { useState } from 'react';
+import { GetFoods } from '../../helpers/apiDrink&Food';
 
 function Foods() {
   const { foods, catFoods } = useContext(dataContext);
-  /* // const [state, setState] = useState('');
-  const filterCategorieFood = async (category) => {
-    const ENDPOINT = `www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-    // const DOZE = 12;
-    // const results = await fetch(ENDPOINT).then((response) => response.json());
-    // const listMeals = results.meals.filter((_meals, index) => index < DOZE);
-    const a = await GetFoods(ENDPOINT);
-    console.log(a);
-    // setFoods(listFilter);
-  }; */
+  const [newList, setNewList] = useState(foods);
+  const [categorySelected, setCategorySelected] = useState('All');
+
+  const filterMeals = async (value) => {
+    if (categorySelected === value || value === 'All') {
+      setNewList(foods);
+      setCategorySelected('All');
+    } else {
+      const ENDPOINT = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${value}`;
+      const listFilter = await GetFoods(ENDPOINT);
+      setNewList(listFilter);
+      setCategorySelected(value);
+    }
+    return value;
+  };
+
   return (
     <div>
       <Header />
       <h1>Foods</h1>
       <section className="contanierButtons">
+        <button
+          className="buttonCat"
+          type="button"
+          data-testid="All-category-filter"
+          onClick={ () => { filterMeals('All'); } }
+        >
+          All
+        </button>
         {
           catFoods.map((category) => (
             <ButtonCategories
               key={ category.strCategory }
               name={ category.strCategory }
-              /* func={ () => filterCategorieFood(category.strCategory) } */
+              onClick={ () => { filterMeals(category.strCategory); } }
             />
           ))
         }
       </section>
       <section className="contanierCards">
         {
-          foods.map((meal) => (
+          newList.map((meal) => (
             <Card
               key={ meal.idMeal }
               img={ meal.strMealThumb }

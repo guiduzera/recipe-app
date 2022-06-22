@@ -7,9 +7,11 @@ function Card(props) {
   return (
     <div className="Card">
       <img src={ img } alt={ name } />
-      <p>
-        { name }
-      </p>
+      <div className="boxName">
+        <p>
+          { name }
+        </p>
+      </div>
     </div>
   );
 }

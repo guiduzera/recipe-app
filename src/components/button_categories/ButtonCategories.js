@@ -3,13 +3,13 @@ import propTypes from 'prop-types';
 import './ButtonCategories.css';
 
 function ButtonCategories(props) {
-  const { name, func } = props;
+  const { name, onClick } = props;
   return (
     <button
       className="buttonCat"
       type="button"
       data-testid={ `${name}-category-filter` }
-      onClick={ func }
+      onClick={ onClick }
     >
       { name }
     </button>
@@ -18,7 +18,7 @@ function ButtonCategories(props) {
 
 ButtonCategories.propTypes = {
   name: propTypes.string.isRequired,
-  func: propTypes.func.isRequired,
+  onClick: propTypes.func.isRequired,
 };
 
 export default ButtonCategories;
