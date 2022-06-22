@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
 import Header from '../../components/Header/Header';
@@ -9,6 +10,7 @@ import { GetDrinks } from '../../helpers/apiDrink&Food';
 
 function Drinks() {
   const { drinks, catDrinks } = useContext(dataContext);
+  const history = useHistory();
   const [newList, setNewList] = useState(drinks);
   const [categorySelected, setCategorySelected] = useState('All');
 
@@ -49,12 +51,19 @@ function Drinks() {
       </section>
       <section className="contanierCards">
         {
-          newList.map((drink) => (
-            <Card
+          newList.map((drink, index) => (
+            <div
               key={ drink.idDrink }
-              img={ drink.strDrinkThumb }
-              name={ drink.strDrink }
-            />
+              onClick={ () => history.push(`/drinks/${drink.idDrink}`) }
+              role="button"
+              onKeyPress={ () => history.push(`/drinks/${drink.idDrink}`) }
+              tabIndex={ index }
+            >
+              <Card
+                img={ drink.strDrinkThumb }
+                name={ drink.strDrink }
+              />
+            </div>
           ))
         }
       </section>
