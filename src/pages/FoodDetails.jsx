@@ -9,7 +9,7 @@ export default function FoodDetails() {
   useEffect(() => {
     const executeFetch = async () => {
       const responseApi = await fetchFoodsDetails(id);
-      setrecipe([responseApi]);
+      setrecipe(responseApi.meals);
     };
     executeFetch();
   }, []);

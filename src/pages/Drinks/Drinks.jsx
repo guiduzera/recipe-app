@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
 import Header from '../../components/Header/Header';
@@ -12,6 +13,7 @@ function Drinks() {
     GetCategorieFoods();
   }, []); */
   const { drinks, catDrinks } = useContext(dataContext);
+  const history = useHistory();
   return (
     <div>
       <Header />
@@ -28,12 +30,19 @@ function Drinks() {
       </section>
       <section className="contanierCards">
         {
-          drinks.map((drink) => (
-            <Card
+          drinks.map((drink, index) => (
+            <div
               key={ drink.idDrink }
-              img={ drink.strDrinkThumb }
-              name={ drink.strDrink }
-            />
+              onClick={ () => history.push(`/drinks/${drink.idDrink}`) }
+              role="button"
+              onKeyPress={ () => history.push(`/drinks/${drink.idDrink}`) }
+              tabIndex={ index }
+            >
+              <Card
+                img={ drink.strDrinkThumb }
+                name={ drink.strDrink }
+              />
+            </div>
           ))
         }
       </section>

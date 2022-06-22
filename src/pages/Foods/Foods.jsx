@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
 import Header from '../../components/Header/Header';
@@ -10,6 +11,7 @@ import ButtonCategories from '../../components/button_categories/ButtonCategorie
 // import { useState } from 'react';
 
 function Foods() {
+  const history = useHistory();
   const { foods, catFoods } = useContext(dataContext);
   /* // const [state, setState] = useState('');
   const filterCategorieFood = async (category) => {
@@ -38,12 +40,19 @@ function Foods() {
       </section>
       <section className="contanierCards">
         {
-          foods.map((meal) => (
-            <Card
+          foods.map((meal, index) => (
+            <div
               key={ meal.idMeal }
-              img={ meal.strMealThumb }
-              name={ meal.strMeal }
-            />
+              onClick={ () => history.push(`/foods/${meal.idMeal}`) }
+              role="button"
+              onKeyPress={ () => history.push(`/foods/${meal.idMeal}`) }
+              tabIndex={ index }
+            >
+              <Card
+                img={ meal.strMealThumb }
+                name={ meal.strMeal }
+              />
+            </div>
           ))
         }
       </section>
