@@ -3,9 +3,10 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Foods from './pages/Foods';
 import FoodDetails from './pages/FoodDetails';
 import DrinkDetails from './pages/DrinkDetails';
+import Foods from './pages/Foods/Foods';
+import Drinks from './pages/Drinks/Drinks';
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
           exact
           path="/foods"
           component={ Foods }
+        />
+        <Route
+          exact
+          path="/drinks"
+          component={ Drinks }
         />
         <Route
           exact
