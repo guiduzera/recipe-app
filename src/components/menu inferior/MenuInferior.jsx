@@ -1,12 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import drinkIcon from '../../images/drinkIcon.svg';
 import exploreIcon from '../../images/exploreIcon.svg';
 import mealIcon from '../../images/mealIcon.svg';
 import './MenuInferior.css';
 
 function MenuInferior() {
-  const redirect = (caminho) => console.log(caminho); /* history.push(caminho); */
+  const history = useHistory();
+  const redirect = (caminho) => history.push(caminho);
 
   return (
     <footer data-testid="footer" className="menuInferior">

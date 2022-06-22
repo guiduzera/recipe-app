@@ -1,0 +1,25 @@
+.Card {
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px gray;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+  width: 200px;
+}
+
+.Card img {
+  box-shadow: 1px 1px 1px darkgray;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 140px;
+}
+
+.Card p {
+  margin-top: 7px;
+}
