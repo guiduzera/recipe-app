@@ -1,14 +1,13 @@
 export const GetFoods = async (endpoint) => {
   const DOZE = 12;
   const results = await fetch(endpoint).then((response) => response.json());
-  const listMeals = results.meals.filter((_meals, index) => index < DOZE);
+  const listMeals = await results.meals.filter((_meals, index) => index < DOZE);
   return listMeals;
 };
 
-export const GetDrinks = async () => {
+export const GetDrinks = async (endpoint) => {
   const DOZE = 12;
-  const ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
-  const resultsDrinks = await fetch(ENDPOINT).then((response) => response.json());
+  const resultsDrinks = await fetch(endpoint).then((response) => response.json());
   const listDrinks = resultsDrinks.drinks.filter((_drinks, index) => index < DOZE);
   return listDrinks;
 };
