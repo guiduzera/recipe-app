@@ -19,3 +19,25 @@ export const fetchDrinksDetails = async (identificador) => {
     console.log(e);
   }
 };
+
+export const fetchRecommendedFoods = async () => {
+  try {
+    const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+    const fetchingRecommendedFoods = await fetch(url);
+    const response = await fetchingRecommendedFoods.json();
+    return response;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const fetchRecommendedDrinks = async () => {
+  try {
+    const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+    const fetchingRecommendedDrinks = await fetch(url);
+    const response = await fetchingRecommendedDrinks.json();
+    return response;
+  } catch (e) {
+    console.log(e);
+  }
+};
