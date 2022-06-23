@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 import { saveEmailToLocalStorage, saveMealsTokenToLocalStorage,
   saveCocktailsTokenToLocalStorage } from '../helpers/localStorage';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
   const history = useHistory();
@@ -48,11 +48,11 @@ function Login() {
   }, [loginState]);
 
   return (
-    <section className="meals">
-      <form onSubmit={ handleButtonSubmit }>
-        <label htmlFor="EmailInput">
+    <Form className="vh-100">
+      <form onSubmit={ handleButtonSubmit } className="d-flex flex-column p-4">
+        <Form.Label htmlFor="EmailInput">
           Email
-          <input
+          <Form.Control
             type="email"
             name="EmailInput"
             id="EmailInput"
@@ -60,10 +60,10 @@ function Login() {
             onChange={ handleInputChange }
             data-testid="email-input"
           />
-        </label>
-        <label htmlFor="PasswordInput">
+        </Form.Label>
+        <Form.Label htmlFor="PasswordInput">
           Password
-          <input
+          <Form.Control
             type="password"
             name="PasswordInput"
             id="PasswordInput"
@@ -71,16 +71,16 @@ function Login() {
             onChange={ handleInputChange }
             data-testid="password-input"
           />
-        </label>
-        <button
+        </Form.Label>
+        <Button
           type="submit"
           data-testid="login-submit-btn"
           disabled={ disable }
         >
           Login
-        </button>
+        </Button>
       </form>
-    </section>
+    </Form>
   );
 }
 
