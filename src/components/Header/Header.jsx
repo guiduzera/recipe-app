@@ -5,7 +5,7 @@ import './Header.css';
 
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <div className="left">
         <img data-testid="profile-top-btn" src={ profile } alt="Perfil" />
       </div>
@@ -15,7 +15,7 @@ function Header() {
       <div className="right">
         <img data-testid="search-top-btn" src={ search } alt="Buscar" />
       </div>
-    </div>
+    </header>
   );
 }
 

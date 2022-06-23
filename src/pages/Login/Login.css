@@ -1,0 +1,9 @@
+.FormLoginPage {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.FormLoginPage form {
+  width: 360px;
+}

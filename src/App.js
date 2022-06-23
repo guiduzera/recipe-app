@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/Login/Login';
+import Explore from './pages/Explore/Explore';
 import FoodDetails from './pages/details/FoodDetails';
 import DrinkDetails from './pages/details/DrinkDetails';
 import Foods from './pages/Foods/Foods';
@@ -36,6 +37,11 @@ function App() {
           exact
           path="/drinks/:id"
           component={ DrinkDetails }
+        />
+        <Route
+          exact
+          path="/explore"
+          component={ Explore }
         />
       </Switch>
     </div>
