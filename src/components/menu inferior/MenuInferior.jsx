@@ -15,6 +15,7 @@ function MenuInferior() {
       <button
         data-testid="drinks-bottom-btn"
         type="button"
+        src={ drinkIcon }
         onClick={ () => redirect('/drinks') }
       >
         <img src={ drinkIcon } alt="taça de bebida" />
@@ -22,6 +23,7 @@ function MenuInferior() {
       <button
         data-testid="explore-bottom-btn"
         type="button"
+        src={ exploreIcon }
         onClick={ () => redirect('/explore') }
       >
         <img src={ exploreIcon } alt="bussola" />
@@ -29,6 +31,7 @@ function MenuInferior() {
       <button
         data-testid="food-bottom-btn"
         type="button"
+        src={ mealIcon }
         onClick={ () => redirect('/foods') }
       >
         <img src={ mealIcon } alt="garfo e faca" />

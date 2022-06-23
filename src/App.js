@@ -7,6 +7,8 @@ import FoodDetails from './pages/FoodDetails';
 import DrinkDetails from './pages/DrinkDetails';
 import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
+import RecipeFoodProgress from './pages/Recipe_in_Progress/RecipeFoodProgress';
+import RecipeDrinkProgress from './pages/Recipe_in_Progress/RecipeDrinkProgress';
 
 function App() {
   return (
@@ -36,6 +38,16 @@ function App() {
           exact
           path="/drinks/:id"
           component={ DrinkDetails }
+        />
+        <Route
+          exact
+          path={ `/foods/${':id'}/in-progress` }
+          component={ RecipeFoodProgress }
+        />
+        <Route
+          exact
+          path="/drinks/:id/in-progress"
+          component={ RecipeDrinkProgress }
         />
       </Switch>
     </div>
