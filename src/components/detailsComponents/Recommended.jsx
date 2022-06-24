@@ -34,6 +34,6 @@ export default function Recommended({ recommended, identificador }) {
 }
 
 Recommended.propTypes = {
-  recommended: PropTypes.string.isRequired,
+  recommended: PropTypes.arrayOf(PropTypes.object).isRequired,
   identificador: PropTypes.string.isRequired,
 };

@@ -9,6 +9,7 @@ function DataProvider({ children }) {
   const [drinks, setDrinks] = useState([]);
   const [catFoods, setCatFoods] = useState([]);
   const [catDrinks, setCatDrinks] = useState([]);
+  const [cardContent, setCardContent] = useState([]);
   useEffect(() => {
     const ENDPOINT_FOOD = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
     const ENDPOINT_DRINK = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -33,6 +34,8 @@ function DataProvider({ children }) {
     setCatFoods,
     catDrinks,
     setCatDrinks,
+    cardContent,
+    setCardContent,
   };
 
   return (
