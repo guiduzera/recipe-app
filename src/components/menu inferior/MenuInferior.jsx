@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import dataContext from '../../context/dataContext';
 import drinkIcon from '../../images/drinkIcon.svg';
 import exploreIcon from '../../images/exploreIcon.svg';
 import mealIcon from '../../images/mealIcon.svg';
@@ -8,6 +9,7 @@ import './MenuInferior.css';
 
 function MenuInferior() {
   const history = useHistory();
+  const { setCardContent } = useContext(dataContext);
   const redirect = (caminho) => history.push(caminho);
 
   return (
@@ -15,21 +17,30 @@ function MenuInferior() {
       <button
         data-testid="drinks-bottom-btn"
         type="button"
-        onClick={ () => redirect('/drinks') }
+        onClick={ () => {
+          setCardContent([]);
+          redirect('/drinks');
+        } }
       >
         <img src={ drinkIcon } alt="taça de bebida" />
       </button>
       <button
         data-testid="explore-bottom-btn"
         type="button"
-        onClick={ () => redirect('/explore') }
+        onClick={ () => {
+          setCardContent([]);
+          redirect('/explore');
+        } }
       >
         <img src={ exploreIcon } alt="bussola" />
       </button>
       <button
         data-testid="food-bottom-btn"
         type="button"
-        onClick={ () => redirect('/foods') }
+        onClick={ () => {
+          setCardContent([]);
+          redirect('/foods');
+        } }
       >
         <img src={ mealIcon } alt="garfo e faca" />
       </button>
