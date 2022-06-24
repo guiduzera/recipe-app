@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+import './Login.css';
 import { saveEmailToLocalStorage, saveMealsTokenToLocalStorage,
-  saveCocktailsTokenToLocalStorage } from '../helpers/localStorage';
+  saveCocktailsTokenToLocalStorage } from '../../helpers/localStorage';
 
 function Login() {
   const history = useHistory();
