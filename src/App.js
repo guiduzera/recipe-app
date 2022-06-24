@@ -7,6 +7,7 @@ import FoodDetails from './pages/details/FoodDetails';
 import DrinkDetails from './pages/details/DrinkDetails';
 import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
@@ -36,6 +37,11 @@ function App() {
           exact
           path="/drinks/:id"
           component={ DrinkDetails }
+        />
+        <Route
+          exact
+          path="/profile"
+          component={ Profile }
         />
       </Switch>
     </div>
