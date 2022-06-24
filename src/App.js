@@ -8,6 +8,8 @@ import FoodDetails from './pages/details/FoodDetails';
 import DrinkDetails from './pages/details/DrinkDetails';
 import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
+import ExploreDrinks from './pages/ExploreDrinks/ExploreDrinks';
+import ExploreFoods from './pages/ExploreFoods/ExploreFoods';
 
 function App() {
   return (
@@ -42,6 +44,16 @@ function App() {
           exact
           path="/explore"
           component={ Explore }
+        />
+        <Route
+          exact
+          path="/explore/foods"
+          component={ ExploreFoods }
+        />
+        <Route
+          exact
+          path="/explore/drinks"
+          component={ ExploreDrinks }
         />
       </Switch>
     </div>
