@@ -48,8 +48,8 @@ function Login() {
   }, [loginState]);
 
   return (
-    <Form className="vh-100">
-      <form onSubmit={ handleButtonSubmit } className="d-flex flex-column p-4">
+    <div className="vh-100">
+      <Form onSubmit={ handleButtonSubmit } className="d-flex flex-column p-4">
         <Form.Label htmlFor="EmailInput">
           Email
           <Form.Control
@@ -79,8 +79,8 @@ function Login() {
         >
           Login
         </Button>
-      </form>
-    </Form>
+      </Form>
+    </div>
   );
 }
 

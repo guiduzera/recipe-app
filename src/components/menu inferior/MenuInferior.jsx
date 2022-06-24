@@ -37,10 +37,4 @@ function MenuInferior() {
   );
 }
 
-/* MenuInferior.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-}; */
-
 export default MenuInferior;
