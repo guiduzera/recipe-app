@@ -25,7 +25,7 @@ export default function FoodDetails() {
       setrecipe(responseApi.meals[0]);
     };
     executeFetch();
-  }, [id]);
+  }, []);
 
   if (recipe.length === 0) {
     return (
