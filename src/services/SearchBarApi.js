@@ -1,11 +1,11 @@
-export const fetchByIgredientFood = async (ingrediente) => {
+export const fetchByIngredientFood = async (ingredient) => {
   try {
-    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingrediente}`;
-    const pegando = await fetch(url);
-    const promise = await pegando.json();
-    return promise;
-  } catch (e) {
-    console.log(e);
+    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
+    const fetching = await fetch(url);
+    const data = await fetching.json();
+    return data;
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -31,14 +31,14 @@ export const fetchByFirstLetterFood = async (fL) => {
   }
 };
 
-export const fetchByIgredientDrink = async (ingrediente) => {
+export const fetchByIngredientDrink = async (ingredient) => {
   try {
-    const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingrediente}`;
-    const pegandoDrink = await fetch(url);
-    const promise = await pegandoDrink.json();
-    return promise;
-  } catch (e) {
-    console.log(e);
+    const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`;
+    const fetching = await fetch(url);
+    const data = await fetching.json();
+    return data;
+  } catch (error) {
+    console.log(error);
   }
 };
 
