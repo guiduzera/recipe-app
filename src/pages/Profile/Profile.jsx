@@ -6,6 +6,19 @@ import './Profile.css';
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const doneRecipes = () => {
+    console.log('done recipes');
+  };
+
+  const favoriteRecipes = () => {
+    console.log('favorite recipes');
+  };
+
+  const logout = () => {
+    console.log('logout');
+  };
+
   return (
     <div>
       <Header />
@@ -15,7 +28,7 @@ function Profile() {
           className="done-btn"
           type="button"
           data-testid="profile-done-btn"
-          /*  onClick={ () => { filterMeals('All'); } } */
+          onClick={ () => { doneRecipes(); } }
         >
           Done Recipes
         </button>
@@ -23,7 +36,7 @@ function Profile() {
           className="favorite-btn"
           type="button"
           data-testid="profile-favorite-btn"
-          /*  onClick={ () => { filterMeals('All'); } } */
+          onClick={ () => { favoriteRecipes(); } }
         >
           Favorite Recipes
         </button>
@@ -31,7 +44,7 @@ function Profile() {
           className="logout-btn"
           type="button"
           data-testid="profile-logout-btn"
-          /*  onClick={ () => { filterMeals('All'); } } */
+          onClick={ () => { logout(); } }
         >
           Logout
         </button>
