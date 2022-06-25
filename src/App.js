@@ -17,17 +17,17 @@ from './pages/Foods/Foods';
 import Drinks
 from './pages/Drinks/Drinks';
 import ExploreDrinks
-from './pages/ExploreDrinks/ExploreDrinks';
+from './pages/Explore/ExploreDrinks/ExploreDrinks';
 import ExploreFoods
-from './pages/ExploreFoods/ExploreFoods';
+from './pages/Explore/ExploreFoods/ExploreFoods';
 import ExploreFoodsByIngredients
-from './pages/ExploreFoodsBy/ExploreFoodsByIngredients';
+from './pages/Explore/ExploreFoodsBy/ExploreFoodsByIngredients';
 import ExploreFoodsByNationalities
-from './pages/ExploreFoodsBy/ExploreFoodsByNationalities';
+from './pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
 import ExploreDrinksByIngredients
-from './pages/ExploreDrinksBy/ExploreDrinksByIngredients';
+from './pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
 import ExploreDrinksByNationalities
-from './pages/ExploreDrinksBy/ExploreDrinksByNationalities';
+from './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
 
 function App() {
   return (
