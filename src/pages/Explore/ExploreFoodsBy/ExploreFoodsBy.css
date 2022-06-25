@@ -1,22 +1,22 @@
 .ExploreIngredientSection {
-  margin-top: 10px;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  margin-top: 10px;
 }
 
 .ExploreIngredientSection button {
+  background: none;
   border: none;
+  cursor: pointer;
   margin: 0;
   text-decoration: none;
-  background: #ffffff00;
-  cursor: pointer;
 }
 
 .ExploreIngredientButton {
-  width: 48vw;
   max-width: 200px;
+  width: 48vw;
 }
 
 .ExploreIngredientButton section {
