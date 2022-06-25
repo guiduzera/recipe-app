@@ -1,3 +1,12 @@
-* {
-  margin: 0;
+.ExploreFoodsByIngredients {
+  width: 75vw;
+}
+
+.ExploreFoodsByNationalities {
+  width: 75vw;
+}
+
+.ExploreFoodsSurprise {
+  margin-bottom: 15rem;
+  width: 75vw;
 }

@@ -3,37 +3,45 @@ import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
+import '../Explore/Explore.css';
 import './ExploreFoods.css';
 
 function ExploreFoods() {
   const history = useHistory();
 
   const redirectingExploreButton = ({ target }) => {
-    history.push(`/explore/${target.name}`);
+    history.push(`/explore/foods/${target.name}`);
   };
 
   return (
-    <div>
+    <div className="BodyExplorePage">
       <Header />
-      <Button
-        name="ingredients"
-        data-testid="explore-by-ingredient"
-        onClick={ redirectingExploreButton }
-      >
-        By Ingredient
-      </Button>
-      <Button
-        name="nationalities"
-        data-testid="explore-by-nationality"
-        onClick={ redirectingExploreButton }
-      >
-        By Nationality
-      </Button>
-      <Button
-        data-testid="explore-surprise"
-      >
-        Surprise me!
-      </Button>
+      <main className="MainExplorePage">
+        <section className="SectionExplorePage">
+          <Button
+            name="ingredients"
+            data-testid="explore-by-ingredient"
+            onClick={ redirectingExploreButton }
+            className="ExploreFoodsByIngredients"
+          >
+            By Ingredient
+          </Button>
+          <Button
+            name="nationalities"
+            data-testid="explore-by-nationality"
+            onClick={ redirectingExploreButton }
+            className="ExploreFoodsByNationalities"
+          >
+            By Nationality
+          </Button>
+          <Button
+            data-testid="explore-surprise"
+            className="ExploreFoodsSurprise"
+          >
+            Surprise me!
+          </Button>
+        </section>
+      </main>
       <MenuInferior />
     </div>
   );
