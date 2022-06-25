@@ -5,13 +5,12 @@ import Header from '../../components/Header/Header';
 import './Profile.css';
 
 function Profile() {
-  const user = storage.getItem('user');
-  console.log(user);
+  const user = JSON.parse(localStorage.getItem('user'));
   return (
     <div>
       <Header />
-      <h1 data-testid="profile-email">email</h1>
-      <section className="contanierButtons">
+      <h1 data-testid="profile-email" className="email">{user.email}</h1>
+      <section className="profileButtons">
         <button
           className="done-btn"
           type="button"

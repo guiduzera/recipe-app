@@ -1,9 +1,21 @@
-.contanierCards {
+.email {
+  margin: 12px auto;
+  text-align: center;
+}
+
+.profileButtons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 50px;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 329px;
+  width: 80%;
+}
+
+.profileButtons button {
+  background: rgb(175, 175, 175);
+  border: none;
+  margin: 10px;
 }
 
 .contanierButtons {
