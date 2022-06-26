@@ -1,22 +1,25 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
 import Header from '../../components/Header/Header';
 import './Profile.css';
 
 function Profile() {
+  const history = useHistory();
   const user = JSON.parse(localStorage.getItem('user'));
 
   const doneRecipes = () => {
-    console.log('done recipes');
+    history.push('/done-recipes');
   };
 
   const favoriteRecipes = () => {
-    console.log('favorite recipes');
+    history.push('/favorite-recipes');
   };
 
   const logout = () => {
-    console.log('logout');
+    localStorage.clear();
+    history.push('/');
   };
 
   return (
