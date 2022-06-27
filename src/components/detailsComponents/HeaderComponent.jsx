@@ -1,27 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import clipboardCopy from 'clipboard-copy';
 import PropTypes from 'prop-types';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 
 export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) {
+  const [isCopie, setIsCopie] = useState(false);
+  const copied = (e) => {
+    e.preventDefault();
+    clipboardCopy(document.URL);
+    setIsCopie(true);
+  };
+
   return (
     <>
       <div
-        data-testid="recipe-photo"
         className="h-25"
-        style={ {
-          backgroundImage: `url(${strMealThumb})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-        } }
+        // style={ {
+        //   backgroundImage: `url(${strMealThumb})`,
+        //   backgroundSize: 'cover',
+        //   backgroundRepeat: 'no-repeat',
+        //   backgroundPosition: 'center',
+        // } }
       >
-        {/* <img
+        <img
           src={ strMealThumb }
           alt="foto da receita"
           className="w-100 h-100"
           data-testid="recipe-photo"
-        /> */}
+        />
       </div>
       <div className="d-flex align-items-center p-2 justify-content-between">
         <div className="d-flex flex-column">
@@ -39,6 +46,7 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
             data-testid="share-btn"
             src={ shareIcon }
             style={ { border: 'none', background: 'white' } }
+            onClick={ copied }
           >
             <img src={ shareIcon } alt="icone de comparthilamento" />
           </button>
@@ -51,9 +59,9 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
           >
             <img src={ whiteHeartIcon } alt="coracao" />
           </button>
+          {isCopie && <span>Link copied!</span>}
         </div>
       </div>
-
     </>
   );
 }

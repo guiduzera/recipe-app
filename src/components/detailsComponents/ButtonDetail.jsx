@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 export default function ButtonDetail({ onClick }) {
   return (
-    <div className="fixed-bottom">
+    <div>
       <Button
         variant="primary"
         size="lg"
         data-testid="start-recipe-btn"
-        className="w-100"
+        className="w-100 fixed-bottom"
         onClick={ onClick }
       >
         Start Recipe
