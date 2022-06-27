@@ -18,10 +18,9 @@ import ExploreFoodsByIngredients
 from './pages/Explore/ExploreFoodsBy/ExploreFoodsByIngredients';
 import ExploreDrinksByIngredients
 from './pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
+import NotFound from './pages/NotFound/NotFound';
 import ExploreFoodsByNationalities
 from './pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
-import ExploreDrinksByNationalities
-from './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
 import Profile from './pages/Profile/Profile';
 import DoneRecipes from './pages/DoneRecipes/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes/FavoriteRecipes';
@@ -98,7 +97,7 @@ function App() {
         <Route
           exact
           path="/explore/drinks/nationalities"
-          component={ ExploreDrinksByNationalities }
+          component={ NotFound }
         />
         <Route
           exact

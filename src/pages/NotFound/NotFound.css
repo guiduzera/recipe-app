@@ -1,0 +1,19 @@
+.NotFound {
+  align-items: center;
+  background-color: #191919;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.NotFound img {
+  max-width: 400px;
+  width: 80vw;
+}
+
+.NotFound p {
+  max-width: 400px;
+  width: 72vw;
+}
