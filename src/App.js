@@ -31,6 +31,8 @@ from './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
 import RecipeFoodProgress from './pages/Recipe_in_Progress/RecipeFoodProgress';
 import RecipeDrinkProgress from './pages/Recipe_in_Progress/RecipeDrinkProgress';
 import DoneRecipes from './pages/DoneRecipes/DoneRecipes';
+import Profile from
+'./pages/Profile/Profile';
 
 function App() {
   return (
@@ -110,6 +112,11 @@ function App() {
           exact
           path="/explore/drinks/nationalities"
           component={ ExploreDrinksByNationalities }
+        />
+        <Route
+          exact
+          path="/profile"
+          component={ Profile }
         />
       </Switch>
     </div>

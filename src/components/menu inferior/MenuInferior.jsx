@@ -17,6 +17,7 @@ function MenuInferior() {
       <button
         data-testid="drinks-bottom-btn"
         type="button"
+        src={ drinkIcon }
         onClick={ () => {
           setCardContent([]);
           redirect('/drinks');
@@ -27,6 +28,7 @@ function MenuInferior() {
       <button
         data-testid="explore-bottom-btn"
         type="button"
+        src={ exploreIcon }
         onClick={ () => {
           setCardContent([]);
           redirect('/explore');
@@ -37,6 +39,7 @@ function MenuInferior() {
       <button
         data-testid="food-bottom-btn"
         type="button"
+        src={ mealIcon }
         onClick={ () => {
           setCardContent([]);
           redirect('/foods');

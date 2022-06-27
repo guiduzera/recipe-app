@@ -57,6 +57,7 @@ function Foods() {
           <Card
             img={ meal.strMealThumb }
             name={ meal.strMeal }
+            index={ index }
           />
         </div>
       ));
