@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../../components/Header/Header';
-import './DoneRecipes.css';
+import './FavoriteRecipes.css';
 
-function DoneRecipes() {
+function FavoriteRecipes() {
   return (
     <div>
       <Header />
@@ -11,4 +11,4 @@ function DoneRecipes() {
   );
 }
 
-export default DoneRecipes;
+export default FavoriteRecipes;

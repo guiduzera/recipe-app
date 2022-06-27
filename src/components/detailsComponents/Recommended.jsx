@@ -10,7 +10,7 @@ export default function Recommended({ recommended, identificador }) {
     <Card
       data-testid={ `${index}-recomendation-card` }
       key={ index }
-      style={ { flex: 'none' } }
+      style={ { flex: 'none', marginRight: '15px' } }
       className="w-50 h-100"
     >
       <Card.Img
@@ -19,7 +19,13 @@ export default function Recommended({ recommended, identificador }) {
       />
       <Card.Body className="d-flex flex-column align-items-start">
         <span className="mt-n3 text-muted ml-n3">{ele[mealCategory]}</span>
-        <Card.Title className="ml-n3">{ele[mealName]}</Card.Title>
+        <Card.Title
+          className="ml-n3"
+          data-testid={ `${index}-recomendation-title` }
+        >
+          {ele[mealName]}
+
+        </Card.Title>
       </Card.Body>
     </Card>
   ));
