@@ -1,13 +1,16 @@
 import React from 'react';
-import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/Login/Login';
+import Explore from './pages/Explore/Explore';
 import FoodDetails from './pages/details/FoodDetails';
 import DrinkDetails from './pages/details/DrinkDetails';
 import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
 import Profile from './pages/Profile/Profile';
+import ExploreDrinks from './pages/ExploreDrinks/ExploreDrinks';
+import ExploreFoods from './pages/ExploreFoods/ExploreFoods';
 
 function App() {
   return (
@@ -42,6 +45,21 @@ function App() {
           exact
           path="/profile"
           component={ Profile }
+        />
+        <Route
+          exact
+          path="/explore"
+          component={ Explore }
+        />
+        <Route
+          exact
+          path="/explore/foods"
+          component={ ExploreFoods }
+        />
+        <Route
+          exact
+          path="/explore/drinks"
+          component={ ExploreDrinks }
         />
       </Switch>
     </div>

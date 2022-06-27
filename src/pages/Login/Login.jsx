@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+import './Login.css';
 import { saveEmailToLocalStorage, saveMealsTokenToLocalStorage,
-  saveCocktailsTokenToLocalStorage } from '../helpers/localStorage';
+  saveCocktailsTokenToLocalStorage } from '../../helpers/localStorage';
 
 function Login() {
   const history = useHistory();
@@ -48,8 +49,8 @@ function Login() {
   }, [loginState]);
 
   return (
-    <Form className="vh-100">
-      <form onSubmit={ handleButtonSubmit } className="d-flex flex-column p-4">
+    <div className="vh-100">
+      <Form onSubmit={ handleButtonSubmit } className="d-flex flex-column p-4">
         <Form.Label htmlFor="EmailInput">
           Email
           <Form.Control
@@ -79,8 +80,8 @@ function Login() {
         >
           Login
         </Button>
-      </form>
-    </Form>
+      </Form>
+    </div>
   );
 }
 
