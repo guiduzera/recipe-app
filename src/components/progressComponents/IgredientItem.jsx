@@ -42,7 +42,7 @@ function IgredientItem({ igredient, medida, index, name }) {
   };
 
   return (
-    <>
+    <div data-testid={ `${index}-ingredient-step` }>
       <input
         type="checkbox"
         id="igredient"
@@ -57,13 +57,13 @@ function IgredientItem({ igredient, medida, index, name }) {
         <p
           key={ index }
           className="lh-sm"
-          data-testid={ `${index}-ingredient-step` }
+          /* data-testid={ `${index}-ingredient-step` } */
         >
           {` ${igredient} - ${medida}`}
 
         </p>
       </label>
-    </>
+    </div>
   );
 }
 

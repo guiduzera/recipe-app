@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
@@ -7,7 +7,14 @@ import './Profile.css';
 
 function Profile() {
   const history = useHistory();
+  const [email, setEmail] = useState('user');
   const user = JSON.parse(localStorage.getItem('user'));
+
+  useEffect(() => {
+    if (user !== null) {
+      setEmail(user.email);
+    }
+  }, []);
 
   const doneRecipes = () => {
     history.push('/done-recipes');
@@ -25,7 +32,7 @@ function Profile() {
   return (
     <div>
       <Header />
-      <h1 data-testid="profile-email" className="email">{user.email}</h1>
+      <h1 data-testid="profile-email" className="email">{email}</h1>
       <section className="profileButtons">
         <button
           className="done-btn"

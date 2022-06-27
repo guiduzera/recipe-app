@@ -7,11 +7,14 @@ function Card(props) {
   return (
     <div
       className="Card"
-      data-testid={ `${index}-recipe-card` }
     >
-      <img src={ img } alt={ name } />
+      <img
+        data-testid={ `${index}-card-img` }
+        src={ img }
+        alt={ name }
+      />
       <div className="boxName">
-        <p>
+        <p data-testid={ `${index}-card-name` }>
           { name }
         </p>
       </div>

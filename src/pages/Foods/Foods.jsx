@@ -13,10 +13,21 @@ import CardSearch from '../../components/Cardsearch';
 
 function Foods() {
   const history = useHistory();
-  const { foods, catFoods, cardContent, setCardContent } = useContext(dataContext);
+  const { foods, setFoods, catFoods,
+    cardContent, setCardContent } = useContext(dataContext);
   const [newList, setNewList] = useState(foods);
   const [categorySelected, setCategorySelected] = useState('All');
   const [searchState, setSearchState] = useState([]);
+
+  useEffect(() => {
+    const getAPIFoods = async () => {
+      const ENDPOINT_FOOD = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+      const result = await GetFoods(ENDPOINT_FOOD);
+      setFoods(result);
+      setNewList(result);
+    };
+    getAPIFoods();
+  }, []);
 
   useEffect(() => {
     if (cardContent === null) {
@@ -52,6 +63,7 @@ function Foods() {
           onClick={ () => history.push(`/foods/${meal.idMeal}`) }
           role="button"
           onKeyPress={ () => history.push(`/foods/${meal.idMeal}`) }
+          data-testid={ `${index}-recipe-card` }
           tabIndex={ index }
         >
           <Card

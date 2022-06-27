@@ -11,11 +11,22 @@ import { GetDrinks } from '../../helpers/apiDrink&Food';
 import CardSearch from '../../components/Cardsearch';
 
 function Drinks() {
-  const { drinks, catDrinks, cardContent, setCardContent } = useContext(dataContext);
+  const { drinks, setDrinks, catDrinks,
+    cardContent, setCardContent } = useContext(dataContext);
   const history = useHistory();
   const [newList, setNewList] = useState(drinks);
   const [categorySelected, setCategorySelected] = useState('All');
   const [searchState, setSearchState] = useState([]);
+
+  useEffect(() => {
+    const getAPIDrinks = async () => {
+      const ENDPOINT_DRINK = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+      const result = await GetDrinks(ENDPOINT_DRINK);
+      setDrinks(result);
+      setNewList(result);
+    };
+    getAPIDrinks();
+  }, []);
 
   useEffect(() => {
     if (cardContent === null) {
@@ -50,6 +61,7 @@ function Drinks() {
           onClick={ () => history.push(`/drinks/${meal.idDrink}`) }
           role="button"
           onKeyPress={ () => history.push(`/drinks/${meal.idDrink}`) }
+          data-testid={ `${index}-recipe-card` }
           tabIndex={ index }
         >
           <Card
