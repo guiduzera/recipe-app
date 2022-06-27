@@ -10,19 +10,19 @@ import FoodDetails from './pages/details/FoodDetails';
 import DrinkDetails from './pages/details/DrinkDetails';
 import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
-import ExploreDrinks from 
+import ExploreDrinks from
 './pages/Explore/ExploreDrinks/ExploreDrinks';
-import ExploreFoods from 
+import ExploreFoods from
 './pages/Explore/ExploreFoods/ExploreFoods';
-import ExploreFoodsByIngredients from 
+import ExploreFoodsByIngredients from
 './pages/Explore/ExploreFoodsBy/ExploreFoodsByIngredients';
-import ExploreFoodsByNationalities from 
+import ExploreFoodsByNationalities from
 './pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
-import ExploreDrinksByIngredients from 
+import ExploreDrinksByIngredients from
 './pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
-import ExploreDrinksByNationalities from 
+import ExploreDrinksByNationalities from
 './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
-import Profile from 
+import Profile from
 './pages/Profile/Profile';
 
 function App() {
