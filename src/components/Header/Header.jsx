@@ -35,7 +35,7 @@ function Header() {
   case '/explore/drinks':
     title = 'Explore Drinks';
     break;
-  case '/explore/foods/ingredients;':
+  case '/explore/foods/ingredients':
     title = 'Explore Ingredients';
     break;
   case '/explore/drinks/ingredients':
