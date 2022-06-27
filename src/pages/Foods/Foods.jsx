@@ -2,6 +2,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from 'prop-types';
 import MenuInferior from '../../components/menu inferior/MenuInferior';
 import Header from '../../components/Header/Header';
 import dataContext from '../../context/dataContext';
@@ -11,7 +12,7 @@ import ButtonCategories from '../../components/button_categories/ButtonCategorie
 import { GetFoods } from '../../helpers/apiDrink&Food';
 import CardSearch from '../../components/Cardsearch';
 
-function Foods() {
+function Foods(props) {
   const history = useHistory();
   const { foods, setFoods, catFoods,
     cardContent, setCardContent } = useContext(dataContext);
@@ -47,13 +48,32 @@ function Foods() {
       setNewList(foods);
       setCategorySelected('All');
     } else {
-      const ENDPOINT = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${value}`;
-      const listFilter = await GetFoods(ENDPOINT);
+      const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${value}`;
+      const listFilter = await GetFoods(URL);
       setNewList(listFilter);
       setCategorySelected(value);
     }
     return value;
   };
+
+  useEffect(() => {
+    const getFromExplore = async (value) => {
+      const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${value}`;
+      const result = await GetFoods(URL);
+      setNewList(result);
+      setCategorySelected(value);
+    };
+    const { location } = props;
+    const validation = !location.state;
+    switch (validation) {
+    case false:
+      getFromExplore(location.state.e);
+      break;
+
+    default:
+      break;
+    }
+  }, [props]);
 
   const cardsRendering = () => {
     if (searchState.length === 0) {
@@ -125,5 +145,9 @@ function Foods() {
     </div>
   );
 }
+
+Foods.propTypes = {
+  location: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Foods;
