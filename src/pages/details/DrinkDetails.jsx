@@ -21,7 +21,7 @@ export default function DrinkDetails() {
       setRecommendDrink(responseDrinksRecommend.meals);
     };
     executeFetch();
-  }, [id]);
+  }, []);
 
   if (drinkRecipe.length === 0) {
     return (
