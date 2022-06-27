@@ -35,8 +35,8 @@ function Drinks() {
       history.push(`/drinks/${cardContent[0].idDrink}`);
       setCardContent([]);
     } else {
-      const SEIS = 6;
-      const filtro = cardContent.filter((ele, index) => index < SEIS);
+      const DOZE = 12;
+      const filtro = cardContent.filter((ele, index) => index < DOZE);
       setSearchState(filtro);
     }
   }, [cardContent]);
