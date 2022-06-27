@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import ButtonDetail from '../../components/detailsComponents/ButtonDetail';
 import HeaderComponent from '../../components/detailsComponents/HeaderComponent';
 import Igredients from '../../components/detailsComponents/Igredients';
@@ -9,6 +9,7 @@ import Recommended from '../../components/detailsComponents/Recommended';
 import { fetchFoodsDetails, fetchRecommendedFoods } from '../../services/DetailsApi';
 
 export default function FoodDetails() {
+  const history = useHistory();
   const [recipe, setrecipe] = useState([]);
   const [recommended, setRecommended] = useState([]);
   const { id } = useParams();
@@ -48,7 +49,11 @@ export default function FoodDetails() {
         <iframe width="325" height="315" src={ `https://www.youtube.com/embed/${idDoVideo}` } title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen data-testid="video" />
       </div>
       <Recommended recommended={ recommended } identificador="food" />
-      <ButtonDetail />
+      <br />
+      <br />
+      <ButtonDetail
+        onClick={ () => history.push(`/foods/${recipe.idMeal}/in-progress`) }
+      />
     </div>
   );
 }

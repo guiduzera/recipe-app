@@ -7,6 +7,7 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
   return (
     <>
       <div
+        data-testid="recipe-photo"
         className="h-25"
         style={ {
           backgroundImage: `url(${strMealThumb})`,

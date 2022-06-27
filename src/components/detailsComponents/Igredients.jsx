@@ -20,6 +20,7 @@ export default function Igredients({ recipe }) {
           <p
             key={ i }
             className="lh-sm"
+            data-testid={ `${i}-ingredient-step` }
           >
             {`- ${element.igredient} - ${element.medida}`}
 
