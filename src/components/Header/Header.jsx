@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import profile from '../../images/profileIcon.svg';
 import search from '../../images/searchIcon.svg';
 import './Header.css';
 
 function Header() {
+  const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+
+  const openProfile = () => {
+    localStorage.clear();
+    history.push('/profile');
+  };
+
   return (
     <div>
       <div className="header">
-        <div className="left">
-          <img data-testid="profile-top-btn" src={ profile } alt="Perfil" />
-        </div>
+        <button
+          type="button"
+          className="btn-profile"
+          data-testid="profile-top-btn"
+          onClick={ () => openProfile() }
+        >
+          <img src={ profile } alt="Perfil" />
+        </button>
         <div className="center">
           title
         </div>
