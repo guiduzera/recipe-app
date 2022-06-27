@@ -13,8 +13,21 @@ const saveCocktailsTokenToLocalStorage = (value) => {
   localStorage.setItem('cocktailsToken', value);
 };
 
+// Rceitas em progresso
+const saveRecipeProgress = (id, itens) => {
+  /* const xablau = localStorage.getItem('inProgressRecipes');
+  console.log(xablau); */
+  const recipe = {
+    meals: {
+      [id]: itens,
+    },
+  };
+  localStorage.setItem('inProgressRecipes', JSON.stringify(recipe));
+};
+
 export {
   saveEmailToLocalStorage,
   saveMealsTokenToLocalStorage,
   saveCocktailsTokenToLocalStorage,
+  saveRecipeProgress,
 };

@@ -9,6 +9,7 @@ import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
 import RecipeFoodProgress from './pages/Recipe_in_Progress/RecipeFoodProgress';
 import RecipeDrinkProgress from './pages/Recipe_in_Progress/RecipeDrinkProgress';
+import DoneRecipes from './pages/DoneRecipes/DoneRecipes';
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
           exact
           path="/drinks/:id/in-progress"
           component={ RecipeDrinkProgress }
+        />
+        <Route
+          exact
+          path="/done-recipes"
+          component={ DoneRecipes }
         />
       </Switch>
     </div>

@@ -1,28 +1,58 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import HeaderComponent from '../../components/detailsComponents/HeaderComponent';
+import ButtonFinish from '../../components/progressComponents/ButtonFinish';
+import Instructions from '../../components/detailsComponents/Instructions';
+import { fetchFoodsDetails } from '../../services/DetailsApi';
+import IgredientsProgress from '../../components/progressComponents/IgredientsProgress';
 
 function RecipeFoodProgress() {
-  const [mock, setMock] = useState([]);
+  const [recipe, setRecipe] = useState([]);
+  const [stateBtn, setStateBtn] = useState(true);
+  // const [checked, setChecked] = useState(false);
+  const { id } = useParams();
   useEffect(() => {
-    const endpoint = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772';
-    const getRecipeMock = async () => {
-      const response = await fetch(endpoint);
-      const data = await response.json();
-      console.log(data);
-      setMock(data.meals);
+    const executeFetch = async () => {
+      const responseApi = await fetchFoodsDetails(id);
+      setRecipe(responseApi.meals[0]);
     };
-    getRecipeMock();
+    executeFetch();
   }, []);
-  console.log(mock);
+
+  const funcBtn = (value) => {
+    setStateBtn(value);
+  };
+
+  /* const igredientSelected = () => {
+    setChecked(true); */
+  /* const s = 'line-through';
+    if (target.checked === true) {
+      setCheckedClass(s);
+    } else {
+      setCheckedClass('');
+    } */
+  /*  console.log('selecionou');
+  }; */
 
   return (
-    <section>
-      <h1>Recipe Food</h1>
-      <button
-        type="button"
-        data-testid="finish-recipe-btn"
-      >
-        Finalizar
-      </button>
+    <section className="vh-100">
+      <HeaderComponent
+        strMealThumb={ recipe.strMealThumb }
+        strMeal={ recipe.strMeal }
+        strCategory={ recipe.strCategory }
+      />
+      <IgredientsProgress
+        recipe={ recipe }
+        parentCallback={ funcBtn }
+      />
+      <Instructions
+        strInstructions={ recipe.strInstructions }
+      />
+      <br />
+      <br />
+      <ButtonFinish
+        btnDisabled={ stateBtn }
+      />
     </section>
   );
 }
