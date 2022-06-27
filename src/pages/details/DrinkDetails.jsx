@@ -13,6 +13,7 @@ export default function DrinkDetails() {
   const [drinkRecipe, setDrinkRecipe] = useState([]);
   const [recommendDrink, setRecommendDrink] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
     const executeFetch = async () => {
       const responseApi = await fetchDrinksDetails(id);
@@ -22,6 +23,7 @@ export default function DrinkDetails() {
     };
     executeFetch();
   }, []);
+
   if (drinkRecipe.length === 0) {
     return (
       <span>carregando</span>

@@ -13,6 +13,7 @@ export default function FoodDetails() {
   const [recipe, setrecipe] = useState([]);
   const [recommended, setRecommended] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
     const executeFetch = async () => {
       const SEIS = 6;
@@ -26,6 +27,7 @@ export default function FoodDetails() {
     };
     executeFetch();
   }, []);
+
   if (recipe.length === 0) {
     return (
       <span>carregando...</span>

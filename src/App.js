@@ -1,12 +1,33 @@
-import React from 'react';
+import React
+from 'react';
+import { Route, Switch }
+from 'react-router-dom';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FoodDetails from './pages/details/FoodDetails';
-import DrinkDetails from './pages/details/DrinkDetails';
-import Foods from './pages/Foods/Foods';
-import Drinks from './pages/Drinks/Drinks';
+import Login
+from './pages/Login/Login';
+import Explore
+from './pages/Explore/Explore';
+import FoodDetails
+from './pages/details/FoodDetails';
+import DrinkDetails
+from './pages/details/DrinkDetails';
+import Foods
+from './pages/Foods/Foods';
+import Drinks
+from './pages/Drinks/Drinks';
+import ExploreDrinks
+from './pages/Explore/ExploreDrinks/ExploreDrinks';
+import ExploreFoods
+from './pages/Explore/ExploreFoods/ExploreFoods';
+import ExploreFoodsByIngredients
+from './pages/Explore/ExploreFoodsBy/ExploreFoodsByIngredients';
+import ExploreFoodsByNationalities
+from './pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
+import ExploreDrinksByIngredients
+from './pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
+import ExploreDrinksByNationalities
+from './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
 import RecipeFoodProgress from './pages/Recipe_in_Progress/RecipeFoodProgress';
 import RecipeDrinkProgress from './pages/Recipe_in_Progress/RecipeDrinkProgress';
 import DoneRecipes from './pages/DoneRecipes/DoneRecipes';
@@ -54,6 +75,41 @@ function App() {
           exact
           path="/done-recipes"
           component={ DoneRecipes }
+        />
+        <Route
+          exact
+          path="/explore"
+          component={ Explore }
+        />
+        <Route
+          exact
+          path="/explore/foods"
+          component={ ExploreFoods }
+        />
+        <Route
+          exact
+          path="/explore/foods/ingredients"
+          component={ ExploreFoodsByIngredients }
+        />
+        <Route
+          exact
+          path="/explore/foods/nationalities"
+          component={ ExploreFoodsByNationalities }
+        />
+        <Route
+          exact
+          path="/explore/drinks"
+          component={ ExploreDrinks }
+        />
+        <Route
+          exact
+          path="/explore/drinks/ingredients"
+          component={ ExploreDrinksByIngredients }
+        />
+        <Route
+          exact
+          path="/explore/drinks/nationalities"
+          component={ ExploreDrinksByNationalities }
         />
       </Switch>
     </div>
