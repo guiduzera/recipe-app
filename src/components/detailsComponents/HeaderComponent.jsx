@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import clipboardCopy from 'clipboard-copy';
 import PropTypes from 'prop-types';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 
 export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) {
+  const [isCopie, setIsCopie] = useState(false);
+  const copied = (e) => {
+    e.preventDefault();
+    clipboardCopy(document.URL);
+    setIsCopie(true);
+  };
+
   return (
     <>
       <div
@@ -38,6 +46,7 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
             data-testid="share-btn"
             src={ shareIcon }
             style={ { border: 'none', background: 'white' } }
+            onClick={ copied }
           >
             <img src={ shareIcon } alt="icone de comparthilamento" />
           </button>
@@ -50,9 +59,9 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
           >
             <img src={ whiteHeartIcon } alt="coracao" />
           </button>
+          {isCopie && <span>Link copied!</span>}
         </div>
       </div>
-
     </>
   );
 }
