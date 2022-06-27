@@ -7,21 +7,20 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
   return (
     <>
       <div
-        data-testid="recipe-photo"
         className="h-25"
-        style={ {
-          backgroundImage: `url(${strMealThumb})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-        } }
+        // style={ {
+        //   backgroundImage: `url(${strMealThumb})`,
+        //   backgroundSize: 'cover',
+        //   backgroundRepeat: 'no-repeat',
+        //   backgroundPosition: 'center',
+        // } }
       >
-        {/* <img
+        <img
           src={ strMealThumb }
           alt="foto da receita"
           className="w-100 h-100"
           data-testid="recipe-photo"
-        /> */}
+        />
       </div>
       <div className="d-flex align-items-center p-2 justify-content-between">
         <div className="d-flex flex-column">
