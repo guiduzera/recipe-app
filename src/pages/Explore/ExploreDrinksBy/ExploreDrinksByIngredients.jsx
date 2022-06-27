@@ -13,7 +13,6 @@ const ExploreDrinksByIngredients = () => {
     const fetchIngredients = async () => {
       const ingredientsNames = await fetchingExploreDrinksIngredients();
       setIngredients(ingredientsNames);
-      console.log(ingredientsNames);
     };
     fetchIngredients();
   }, []);
@@ -28,7 +27,7 @@ const ExploreDrinksByIngredients = () => {
             className="ExploreIngredientButton"
             data-testid="product-detail-link"
             to={ {
-              pathname: '/drinks/',
+              pathname: '/drinks',
               state: { e },
             } }
           >
