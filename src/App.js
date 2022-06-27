@@ -10,13 +10,20 @@ import FoodDetails from './pages/details/FoodDetails';
 import DrinkDetails from './pages/details/DrinkDetails';
 import Foods from './pages/Foods/Foods';
 import Drinks from './pages/Drinks/Drinks';
-import ExploreDrinks from './pages/Explore/ExploreDrinks/ExploreDrinks';
-import ExploreFoods from './pages/Explore/ExploreFoods/ExploreFoods';
-import ExploreFoodsByIngredients from './pages/Explore/ExploreFoodsBy/ExploreFoodsByIngredients';
-import ExploreFoodsByNationalities from './pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
-import ExploreDrinksByIngredients from './pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
-import ExploreDrinksByNationalities from './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
-import Profile from './pages/Profile/Profile';
+import ExploreDrinks from 
+'./pages/Explore/ExploreDrinks/ExploreDrinks';
+import ExploreFoods from 
+'./pages/Explore/ExploreFoods/ExploreFoods';
+import ExploreFoodsByIngredients from 
+'./pages/Explore/ExploreFoodsBy/ExploreFoodsByIngredients';
+import ExploreFoodsByNationalities from 
+'./pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
+import ExploreDrinksByIngredients from 
+'./pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
+import ExploreDrinksByNationalities from 
+'./pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
+import Profile from 
+'./pages/Profile/Profile';
 
 function App() {
   return (
