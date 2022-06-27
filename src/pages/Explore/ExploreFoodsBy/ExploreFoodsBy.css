@@ -1,3 +1,29 @@
-* {
+.ExploreIngredientSection {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.ExploreIngredientSection button {
+  background: none;
+  border: none;
+  cursor: pointer;
   margin: 0;
+  text-decoration: none;
+}
+
+.ExploreIngredientButton {
+  max-width: 200px;
+  width: 48vw;
+}
+
+.ExploreIngredientButton section {
+  max-width: 42vw;
+}
+
+.ExploreIngredientButton img {
+  height: auto;
+  max-width: 48vw;
 }

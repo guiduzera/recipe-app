@@ -40,8 +40,8 @@ export default function SearchBar() {
   };
 
   const DrinkVerification = () => {
-    if (searchBarState.radioFilter === 'Igredient') {
-      ApiSearch(SearchBarApi.fetchByIgredientDrink, busca);
+    if (searchBarState.radioFilter === 'Ingredient') {
+      ApiSearch(SearchBarApi.fetchByIngredientDrink, busca);
     } else if (searchBarState.radioFilter === 'Name') {
       ApiSearch(SearchBarApi.fetchByNameDrink, busca);
     } else if (searchBarState.radioFilter === FirstLetter) {
@@ -57,8 +57,8 @@ export default function SearchBar() {
 
   const handleClick = () => {
     if (location.pathname === '/foods') {
-      if (searchBarState.radioFilter === 'Igredient') {
-        ApiSearch(SearchBarApi.fetchByIgredientFood, busca);
+      if (searchBarState.radioFilter === 'Ingredient') {
+        ApiSearch(SearchBarApi.fetchByIngredientFood, busca);
       } else if (searchBarState.radioFilter === 'Name') {
         ApiSearch(SearchBarApi.fetchByNameFood, busca);
       } else if (searchBarState.radioFilter === FirstLetter) {
@@ -86,17 +86,17 @@ export default function SearchBar() {
         className="w-100 form-control"
       />
       <div>
-        <label htmlFor="radio_igredient">
+        <label htmlFor="radio_ingredient">
           <input
             name="radioFilter"
-            value="Igredient"
+            value="Ingredient"
             type="radio"
-            id="radio_igredient"
+            id="radio_ingredient"
             data-testid="ingredient-search-radio"
             onChange={ handleChange }
           />
         </label>
-        Igredient
+        Ingredient
         <label htmlFor="radio_name" className="p-2">
           <input
             name="radioFilter"

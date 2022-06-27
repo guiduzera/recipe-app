@@ -65,5 +65,3 @@ export const fetchingRandomDrink = async () => {
     console.log(error);
   }
 };
-
-fetchingRandomFood();
