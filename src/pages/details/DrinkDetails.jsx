@@ -16,10 +16,14 @@ export default function DrinkDetails() {
 
   useEffect(() => {
     const executeFetch = async () => {
+      const SEIS = 6;
       const responseApi = await fetchDrinksDetails(id);
       const responseDrinksRecommend = await fetchRecommendedDrinks();
+      const filteredRecommended = responseDrinksRecommend.meals.filter(
+        (_drinks, index) => index < SEIS,
+      );
       setDrinkRecipe(responseApi.drinks[0]);
-      setRecommendDrink(responseDrinksRecommend.meals);
+      setRecommendDrink(filteredRecommended);
     };
     executeFetch();
   }, []);

@@ -15,12 +15,15 @@ export default function Igredients({ recipe }) {
   return (
     <div className="p-2">
       <h3>Igredients</h3>
-      <div className="p-2 rounded" style={ { background: 'lightgray' } }>
+      <div
+        className="p-2 rounded"
+        style={ { background: 'lightgray' } }
+      >
         {igredients.map((element, i) => (
           <p
             key={ i }
             className="lh-sm"
-            data-testid={ `${i}-ingredient-step` }
+            data-testid={ `${i}-ingredient-name-and-measure` }
           >
             {`- ${element.igredient} - ${element.medida}`}
 
