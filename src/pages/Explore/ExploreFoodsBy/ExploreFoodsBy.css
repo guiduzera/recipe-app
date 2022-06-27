@@ -24,6 +24,8 @@
 }
 
 .ExploreIngredientButton img {
-  height: auto;
-  max-width: 48vw;
+  max-height: 150px;
+  max-width: 200px;
+  height: 42vw;
+  width: 48vw;
 }

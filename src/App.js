@@ -26,13 +26,12 @@ import ExploreFoodsByNationalities
 from './pages/Explore/ExploreFoodsBy/ExploreFoodsByNationalities';
 import ExploreDrinksByIngredients
 from './pages/Explore/ExploreDrinksBy/ExploreDrinksByIngredients';
-import ExploreDrinksByNationalities
-from './pages/Explore/ExploreDrinksBy/ExploreDrinksByNationalities';
 import RecipeFoodProgress from './pages/Recipe_in_Progress/RecipeFoodProgress';
 import RecipeDrinkProgress from './pages/Recipe_in_Progress/RecipeDrinkProgress';
 import DoneRecipes from './pages/DoneRecipes/DoneRecipes';
 import Profile from
 './pages/Profile/Profile';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -111,7 +110,7 @@ function App() {
         <Route
           exact
           path="/explore/drinks/nationalities"
-          component={ ExploreDrinksByNationalities }
+          component={ NotFound }
         />
         <Route
           exact

@@ -1,17 +1,18 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import './Card.css';
+import './NationCard.css';
 
-function Card(props) {
+function NationCard(props) {
   const { img, name, index } = props;
   return (
     <section
       className="Card"
+      data-testid={ `${index}-recipe-card` }
     >
       <img
-        data-testid={ `${index}-card-img` }
         src={ img }
         alt={ name }
+        data-testid={ `${index}-card-img` }
       />
       <div className="boxName">
         <p data-testid={ `${index}-card-name` }>
@@ -22,10 +23,10 @@ function Card(props) {
   );
 }
 
-Card.propTypes = {
+NationCard.propTypes = {
   img: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
   index: propTypes.number.isRequired,
 };
 
-export default Card;
+export default NationCard;
