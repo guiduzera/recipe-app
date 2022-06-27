@@ -14,27 +14,79 @@ function Header() {
     history.push('/profile');
   };
 
+  const path = history.location.pathname;
+  let title = '';
+  let searchIcon = false;
+  switch (path) {
+  case '/foods':
+    title = 'Foods';
+    searchIcon = true;
+    break;
+  case '/drinks':
+    title = 'Drinks';
+    searchIcon = true;
+    break;
+  case '/explore':
+    title = 'Explore';
+    break;
+  case '/explore/foods':
+    title = 'Explore Foods';
+    break;
+  case '/explore/drinks':
+    title = 'Explore Drinks';
+    break;
+  case '/explore/foods/ingredients;':
+    title = 'Explore Ingredients';
+    break;
+  case '/explore/drinks/ingredients':
+    title = 'Explore Ingredients';
+    break;
+  case '/explore/foods/nationalities':
+    title = 'Explore Nationalities';
+    searchIcon = true;
+    break;
+  case '/done-recipes':
+    title = 'Done Recipes';
+    break;
+  case '/profile':
+    title = 'Profile';
+    break;
+  case '/favorite-recipes':
+    title = 'Favorite Recipes';
+    break;
+  default:
+    title = '';
+    searchIcon = false;
+  }
+
+  console.log(history.location.pathname);
+
   return (
     <div>
       <div className="header">
         <button
           type="button"
           className="btn-profile"
-          data-testid="profile-top-btn"
           onClick={ () => openProfile() }
         >
-          <img src={ profile } alt="Perfil" />
+          <img data-testid="profile-top-btn" src={ profile } alt="Perfil" />
         </button>
-        <div className="center">
-          title
-        </div>
-        <button
-          type="button"
-          onClick={ () => (isOpen === true ? setIsOpen(false) : setIsOpen(true)) }
-          style={ { border: 'none', background: 'lightgray' } }
+        <div
+          className="center"
+          data-testid="page-title"
         >
-          <img data-testid="search-top-btn" src={ search } alt="Buscar" />
-        </button>
+          { title }
+        </div>
+        {searchIcon === true
+          ? (
+            <button
+              type="button"
+              onClick={ () => (isOpen === true ? setIsOpen(false) : setIsOpen(true)) }
+              style={ { border: 'none', background: 'lightgray' } }
+            >
+              <img data-testid="search-top-btn" src={ search } alt="Buscar" />
+            </button>)
+          : <span />}
       </div>
       { isOpen && <SearchBar />}
     </div>
