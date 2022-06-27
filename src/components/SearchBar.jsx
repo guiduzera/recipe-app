@@ -83,6 +83,7 @@ export default function SearchBar() {
         name="searchRecipe"
         value={ searchBarState.searchRecipe }
         onChange={ handleChange }
+        data-testid="search-input"
         className="w-100 form-control"
       />
       <div>

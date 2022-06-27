@@ -36,8 +36,8 @@ function Foods() {
       history.push(`/foods/${cardContent[0].idMeal}`);
       setCardContent([]);
     } else {
-      const SEIS = 6;
-      const filtro = cardContent.filter((ele, index) => index < SEIS);
+      const DOZE = 12;
+      const filtro = cardContent.filter((ele, index) => index < DOZE);
       setSearchState(filtro);
     }
   }, [cardContent]);
