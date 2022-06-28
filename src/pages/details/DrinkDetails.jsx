@@ -39,6 +39,11 @@ export default function DrinkDetails() {
         strMealThumb={ drinkRecipe.strDrinkThumb }
         strMeal={ drinkRecipe.strDrink }
         strCategory={ drinkRecipe.strAlcoholic }
+        strLocalStorageCategory={ drinkRecipe.strCategory }
+        strId={ id }
+        strType="drink"
+        strAlcoholic={ drinkRecipe.strAlcoholic }
+        strArea=""
       />
       <Igredients recipe={ drinkRecipe } />
       <Instructions strInstructions={ drinkRecipe.strInstructions } />

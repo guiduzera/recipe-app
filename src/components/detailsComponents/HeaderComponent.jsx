@@ -1,16 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clipboardCopy from 'clipboard-copy';
 import PropTypes from 'prop-types';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
+import blackHeartIcon from '../../images/blackHeartIcon.svg';
+import { getFavoriteRecipeFromLocalStorage,
+  saveFavoriteRecipeToLocalStorage } from '../../helpers/localStorage';
 
-export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) {
+export default function HeaderComponent(props) {
+  const { strMealThumb, strMeal, strCategory, strId, strType,
+    strArea, strAlcoholic, strLocalStorageCategory } = props;
+  const WHITE_HEART = 'WHITE_HEART';
+  const BLACK_HEART = 'BLACK_HEART';
+
   const [isCopie, setIsCopie] = useState(false);
+  const [heartIcon, setHeartIcon] = useState({
+    src: whiteHeartIcon,
+    alt: WHITE_HEART,
+  });
+
+  const favoriteToLocalStorage = [{
+    id: strId,
+    type: strType,
+    nationality: strArea,
+    category: strLocalStorageCategory,
+    alcoholicOrNot: strAlcoholic,
+    name: strMeal,
+    image: strMealThumb,
+  }];
+
+  console.log(favoriteToLocalStorage);
+
   const copied = (e) => {
     e.preventDefault();
     clipboardCopy(document.URL);
     setIsCopie(true);
   };
+
+  const heartIconSwap = () => {
+    switch (heartIcon.alt) {
+    case WHITE_HEART:
+      setHeartIcon({
+        src: blackHeartIcon,
+        alt: BLACK_HEART,
+      });
+      saveFavoriteRecipeToLocalStorage(favoriteToLocalStorage);
+      break;
+
+    default:
+      setHeartIcon({
+        src: whiteHeartIcon,
+        alt: WHITE_HEART,
+      });
+      saveFavoriteRecipeToLocalStorage(favoriteToLocalStorage);
+      break;
+    }
+  };
+
+  useEffect(() => {
+    const validation = getFavoriteRecipeFromLocalStorage(favoriteToLocalStorage);
+    switch (validation) {
+    case true:
+      setHeartIcon({
+        src: blackHeartIcon,
+        alt: BLACK_HEART,
+      });
+      break;
+
+    default:
+      break;
+    }
+  }, []);
 
   return (
     <>
@@ -54,10 +114,11 @@ export default function HeaderComponent({ strMealThumb, strMeal, strCategory }) 
           <button
             type="button"
             data-testid="favorite-btn"
-            src={ whiteHeartIcon }
-            style={ { border: 'none', background: 'white' } }
+            src={ heartIcon.src }
+            style={ { border: 'none', background: 'none' } }
+            onClick={ heartIconSwap }
           >
-            <img src={ whiteHeartIcon } alt="coracao" />
+            <img src={ heartIcon.src } alt={ heartIcon.alt } />
           </button>
           {isCopie && <span>Link copied!</span>}
         </div>
@@ -70,4 +131,9 @@ HeaderComponent.propTypes = {
   strMealThumb: PropTypes.string.isRequired,
   strMeal: PropTypes.string.isRequired,
   strCategory: PropTypes.string.isRequired,
+  strId: PropTypes.string.isRequired,
+  strType: PropTypes.string.isRequired,
+  strArea: PropTypes.string.isRequired,
+  strAlcoholic: PropTypes.string.isRequired,
+  strLocalStorageCategory: PropTypes.string.isRequired,
 };
