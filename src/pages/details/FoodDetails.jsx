@@ -10,7 +10,7 @@ import { fetchFoodsDetails, fetchRecommendedFoods } from '../../services/Details
 
 export default function FoodDetails() {
   const history = useHistory();
-  const [recipe, setrecipe] = useState([]);
+  const [recipe, setRecipe] = useState([]);
   const [recommended, setRecommended] = useState([]);
   const { id } = useParams();
 
@@ -23,7 +23,7 @@ export default function FoodDetails() {
         (_drinks, index) => index < SEIS,
       );
       setRecommended(filteredRecommended);
-      setrecipe(responseApi.meals[0]);
+      setRecipe(responseApi.meals[0]);
     };
     executeFetch();
   }, []);
@@ -41,6 +41,11 @@ export default function FoodDetails() {
         strMealThumb={ recipe.strMealThumb }
         strMeal={ recipe.strMeal }
         strCategory={ recipe.strCategory }
+        strLocalStorageCategory={ recipe.strCategory }
+        strId={ id }
+        strType="food"
+        strAlcoholic=""
+        strArea={ recipe.strArea }
       />
       <Igredients recipe={ recipe } />
       <Instructions strInstructions={ recipe.strInstructions } />
