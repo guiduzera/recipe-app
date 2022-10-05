@@ -14,7 +14,7 @@ function NationCard(props) {
         alt={ name }
         data-testid={ `${index}-card-img` }
       />
-      <div className="boxName">
+      <div className="boxName d-flex justify-content-center p-2">
         <p data-testid={ `${index}-card-name` }>
           { name }
         </p>
